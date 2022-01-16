@@ -1,4 +1,4 @@
-package testgroup.filmography.config;
+package org.shestakov.homelibrary.config;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan(basePackages = "testgroup.filmography")
+@ComponentScan(basePackages = "org.shestakov.homelibrary")
 @EnableTransactionManagement
 @PropertySource(value = "classpath:db.properties")
 public class HibernateConfig {
@@ -47,7 +47,7 @@ public class HibernateConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("testgroup.filmography.model");
+        sessionFactory.setPackagesToScan("org.shestakov.homelibrary.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
