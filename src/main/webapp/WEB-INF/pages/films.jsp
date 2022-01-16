@@ -25,7 +25,7 @@
                 <td>${film.year}</td>
                 <td>${film.genre}</td>
                 <td>
-                    <c:if test="${film.watched == true}">
+                    <c:if test="${film.watched}">
                         <span class="icon icon-watched"></span>
                     </c:if>
                 </td>

@@ -1,27 +1,35 @@
 package testgroup.filmography.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "films")
 public class Film {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Basic
+    @Column(name = "ID", nullable = false, precision = 0)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_generator2")
+    @SequenceGenerator(name = "my_generator2", sequenceName = "FILMSIDSEQ", allocationSize = 1)
     private int id;
 
-    @Column(name = "title")
+    @Basic
+    @Column(name = "TITLE", nullable = false, length = 100)
     private String title;
 
-    @Column(name = "year")
-    private int year;
+    @Basic
+    @Column(name = "YEAR", nullable = true, precision = 0)
+    private Integer year;
 
-    @Column(name = "genre")
+    @Basic
+    @Column(name = "GENRE", nullable = true, length = 20)
     private String genre;
 
-    @Column(name = "watched")
-    private boolean watched;
+    @Basic
+    @Column(name = "WATCHED", nullable = true, precision = 0)
+    private Boolean watched;
 
 
     public int getId() {
@@ -40,11 +48,11 @@ public class Film {
         this.title = title;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -56,12 +64,29 @@ public class Film {
         this.genre = genre;
     }
 
-    public boolean isWatched() {
+    public Boolean getWatched() {
         return watched;
     }
 
-    public void setWatched(boolean watched) {
+    public void setWatched(Boolean watched) {
         this.watched = watched;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return id == film.id && Objects.equals(title, film.title)
+                    && Objects.equals(year, film.year)
+                    && Objects.equals(genre, film.genre)
+                    && Objects.equals(watched, film.watched);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, year, genre, watched);
     }
 
     @Override
