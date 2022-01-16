@@ -57,7 +57,7 @@ public class Film {
         this.genre = genre;
     }
 
-    public Boolean isWatched() {
+    public Boolean getWatched() {
         return watched;
     }
 

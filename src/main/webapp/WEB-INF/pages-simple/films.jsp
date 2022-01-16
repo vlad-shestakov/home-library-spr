@@ -21,8 +21,14 @@
             <td>${film.title}</td>
             <td>${film.year}</td>
             <td>${film.genre}</td>
-                <%--            <td>${film.watched}</td>--%>
             <td>x</td>
+                <%--            <td>${film.watched}</td>--%>
+                <%--            <td>${film.watched.toString()}</td>--%>
+                <%--            <td>${(film.watched eq "true")? "a" : "b" }</td>--%>
+                <%--            <td>${(Boolean.valueOf(film.watched))? "a" : "b" }</td>--%>
+                <%--            <td>${(film.watched.equals(TRUE))? "a" : "b" }</td>--%>
+                <%--            <td>${((film.watched).booleanValue() eq true) ? "a" : "b" }</td>--%>
+                <%--            ((Boolean)obj).booleanValue() --%>
             <td><a href="<c:url value="/edit/${film.id}"/>">edit</a></td>
             <td><a href="<c:url value="/delete/${film.id}"/>">delete</a></td>
         </tr>

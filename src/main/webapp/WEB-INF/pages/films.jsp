@@ -25,9 +25,9 @@
                 <td>${film.year}</td>
                 <td>${film.genre}</td>
                 <td>
-<%--                    <c:if test="${film.watched == TRUE}">--%>
+                    <c:if test="${film.watched}">
                         <span class="icon icon-watched"></span>
-<%--                    </c:if>--%>
+                    </c:if>
                 </td>
                 <td>
                     <a href="/edit/${film.id}">
