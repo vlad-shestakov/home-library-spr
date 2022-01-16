@@ -21,7 +21,8 @@
             <td>${film.title}</td>
             <td>${film.year}</td>
             <td>${film.genre}</td>
-            <td>${film.watched}</td>
+                <%--            <td>${film.watched}</td>--%>
+            <td>x</td>
             <td><a href="<c:url value="/edit/${film.id}"/>">edit</a></td>
             <td><a href="<c:url value="/delete/${film.id}"/>">delete</a></td>
         </tr>

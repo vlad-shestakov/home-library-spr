@@ -1,6 +1,7 @@
 package testgroup.filmography.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "films")
@@ -15,13 +16,13 @@ public class Film {
     private String title;
 
     @Column(name = "year")
-    private int year;
+    private Integer year;
 
     @Column(name = "genre")
     private String genre;
 
     @Column(name = "watched")
-    private boolean watched;
+    private Boolean watched;
 
 
     public int getId() {
@@ -40,11 +41,11 @@ public class Film {
         this.title = title;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
@@ -56,13 +57,30 @@ public class Film {
         this.genre = genre;
     }
 
-    public boolean isWatched() {
+    public Boolean isWatched() {
         return watched;
     }
 
-    public void setWatched(boolean watched) {
+    public void setWatched(Boolean watched) {
         this.watched = watched;
     }
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Film film = (Film) o;
+//        return id == film.id && Objects.equals(title, film.title)
+//                    && Objects.equals(year, film.year)
+//                    && Objects.equals(genre, film.genre)
+//                    && Objects.equals(watched, film.watched);
+//    }
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, title, year, genre, watched);
+//    }
 
     @Override
     public String toString() {
