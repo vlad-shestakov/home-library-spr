@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "testgroup.filmography")
+@ComponentScan(basePackages = "org.shestakov.homelibrary")
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
