@@ -1,4 +1,4 @@
-package testgroup.filmography.model;
+package org.shestakov.homelibrary.model;
 
 import javax.persistence.*;
 import java.util.Objects;

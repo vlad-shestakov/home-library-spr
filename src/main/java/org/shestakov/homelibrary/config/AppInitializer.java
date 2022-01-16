@@ -1,4 +1,4 @@
-package testgroup.filmography.config;
+package org.shestakov.homelibrary.config;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

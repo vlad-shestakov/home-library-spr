@@ -1,10 +1,10 @@
-package testgroup.filmography.service;
+package org.shestakov.homelibrary.service;
 
+import org.shestakov.homelibrary.dao.FilmDAO;
+import org.shestakov.homelibrary.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import testgroup.filmography.dao.FilmDAO;
-import testgroup.filmography.model.Film;
 
 import java.util.List;
 

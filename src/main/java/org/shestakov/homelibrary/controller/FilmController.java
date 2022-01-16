@@ -1,11 +1,11 @@
-package testgroup.filmography.controller;
+package org.shestakov.homelibrary.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import testgroup.filmography.model.Film;
-import testgroup.filmography.service.FilmService;
+import org.shestakov.homelibrary.model.Film;
+import org.shestakov.homelibrary.service.FilmService;
 
 import java.util.List;
 
