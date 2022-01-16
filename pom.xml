@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>testgroup</groupId>
-    <artifactId>filmography</artifactId>
+    <artifactId>home-library-spr</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
