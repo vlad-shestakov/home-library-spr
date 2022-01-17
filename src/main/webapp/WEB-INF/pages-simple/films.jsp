@@ -37,6 +37,11 @@
             </c:forEach>
         </td>
     </tr>
+    <tr>
+        <td colspan="7">
+            <a href="<c:url value="/libitems"/>">Library items</a>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

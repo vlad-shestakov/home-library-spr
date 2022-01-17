@@ -6,18 +6,28 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.shestakov.homelibrary.model.Film;
 import org.shestakov.homelibrary.service.FilmService;
+import org.shestakov.homelibrary.model.LibItem;
+import org.shestakov.homelibrary.service.LibItemService;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Controller
 public class FilmController {
     private int page;
+    private int pageLibItem;
 
     private FilmService filmService;
+    private LibItemService libItemService;
 
     @Autowired
     public void setFilmService(FilmService filmService) {
         this.filmService = filmService;
+    }
+
+    @Autowired
+    public void setLibItemService(LibItemService libItemService) {
+        this.libItemService = libItemService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -35,10 +45,32 @@ public class FilmController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/libitems", method = RequestMethod.GET)
+    public ModelAndView allLibItems(@RequestParam(defaultValue = "1") int page) {
+        List<LibItem> libItems = libItemService.allLibItems(page);
+        int libItemsCount = libItemService.libItemsCount();
+        int pagesCount = (libItemsCount + 9)/10;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("libitems");
+        modelAndView.addObject("page", page);
+        modelAndView.addObject("filmsList", libItems);
+        modelAndView.addObject("filmsCount", libItemsCount);
+        modelAndView.addObject("pagesCount", pagesCount);
+        this.pageLibItem = page;
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addPage(@ModelAttribute("message") String message) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/addlibitem", method = RequestMethod.GET)
+    public ModelAndView addLibItemPage(@ModelAttribute("message") String message) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editLibItemPage");
         return modelAndView;
     }
 
@@ -56,6 +88,21 @@ public class FilmController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/addlibitem", method = RequestMethod.POST)
+    public ModelAndView addLibItem(@ModelAttribute("film") LibItem libItem) {
+        ModelAndView modelAndView = new ModelAndView();
+//        if (libItemService.checkByItemName(libItem.getItemName())) {
+            modelAndView.setViewName("redirect:/libitems");
+            modelAndView.addObject("page", pageLibItem);
+            libItemService.add(libItem);
+//        } else {
+//            modelAndView.addObject("message","part with title \"" + libItem.getItemName() + "\" already exists");
+//            modelAndView.setViewName("redirect:/i/add");
+//        }
+        return modelAndView;
+    }
+
+
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editPage(@PathVariable("id") int id,
                                  @ModelAttribute("message") String message) {
@@ -63,6 +110,16 @@ public class FilmController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("editPage");
         modelAndView.addObject("film", film);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/editlibitem/{id}", method = RequestMethod.GET)
+    public ModelAndView editLibItemPage(@PathVariable("id") int id,
+                                 @ModelAttribute("message") String message) {
+        LibItem libItem = libItemService.getById(BigInteger.valueOf(id));
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editLibItemPage");
+        modelAndView.addObject("film", libItem);
         return modelAndView;
     }
 
@@ -80,6 +137,22 @@ public class FilmController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/editlibitem", method = RequestMethod.POST)
+    public ModelAndView editLibItem(@ModelAttribute("film") LibItem libItem) {
+        ModelAndView modelAndView = new ModelAndView();
+//        if (libItemService.checkByItemName(libItem.getItemName())
+//                || libItemService.getById(libItem.getLibraryItemNo()).getItemName().equals(libItem.getItemName())) {
+            modelAndView.setViewName("redirect:/libitems");
+            modelAndView.addObject("page", pageLibItem);
+            libItemService.edit(libItem);
+//        } else {
+//            modelAndView.addObject("message","part with title \"" + libItem.getItemName() + "\" already exists");
+//            modelAndView.setViewName("redirect:/i/edit/" +  + libItem.getLibraryItemNo().intValue());
+//        }
+        return modelAndView;
+    }
+
+
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteFilm(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -90,6 +163,19 @@ public class FilmController {
         modelAndView.addObject("page", page);
         Film film = filmService.getById(id);
         filmService.delete(film);
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/deletelibitem/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteLibItem(@PathVariable("id") int id) {
+        ModelAndView modelAndView = new ModelAndView();
+        int libItemsCount = libItemService.libItemsCount();
+        int page = ((libItemsCount - 1) % 10 == 0 && libItemsCount > 10 && this.page == (libItemsCount + 9)/10) ?
+                this.page - 1 : this.page;
+        modelAndView.setViewName("redirect:/libitems");
+        modelAndView.addObject("page", pageLibItem);
+        LibItem libItem = libItemService.getById(BigInteger.valueOf(id));
+        libItemService.delete(libItem);
         return modelAndView;
     }
 }
