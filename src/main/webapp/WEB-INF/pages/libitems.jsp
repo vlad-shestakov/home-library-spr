@@ -13,7 +13,7 @@
     <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>
 </head>
-<body>
+<body class="style library">
 <table class="style">
     <caption class="heading">Books library</caption>
     <c:if test="${filmsCount > 0}">

@@ -20,7 +20,7 @@
         </c:otherwise>
     </c:choose>
 </head>
-<body>
+<body class="style library">
 <c:url value="/addlibitem" var="addUrl"/>
 <c:url value="/editlibitem" var="editUrl"/>
 <form class="style" action="${empty film.itemName ? addUrl : editUrl}" name="film" method="POST">

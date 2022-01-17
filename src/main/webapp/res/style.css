@@ -1,5 +1,10 @@
 body {
     background: url("tlotr.png") no-repeat 50% 50% fixed;
+    /*background: url("librarybg.jpg") no-repeat 50% 50% fixed;*/
+}
+
+body.library {
+    background: url("librarybg.jpg") no-repeat 50% 50% fixed;
 }
 
 a {
@@ -220,7 +225,7 @@ a:active {
 }
 
 input[type=submit] {
-    width: 100px;
+    width: 240px;
     height: 35px;
     font-size: 24px;
     cursor: pointer;
