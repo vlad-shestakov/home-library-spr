@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>FILMS</title>
+    <title>FILMS LIBRARY</title>
     <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>
 </head>
 <body>
 <table class="style">
-    <caption class="heading">Films</caption>
+    <caption class="heading">Films library</caption>
     <c:if test="${filmsCount > 0}">
         <tr>
             <th class="left-side">№</th>
@@ -116,6 +116,11 @@
             <span style="margin-left: 70px; font-size: 120%">Total number Of films: ${filmsCount}</span>
         </td>
     </tr>
+    <td colspan="7" class="left-side link right-side">
+        <a style="margin-right: 70px; font-size: 100%" href="<c:url value="/libitems"/>">
+            <span class="icon icon-watched"></span>Books library
+        </a>
+    </td>
 </table>
 </body>
 </html>
