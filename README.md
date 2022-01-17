@@ -16,15 +16,9 @@
 [Проект автора в GitHub](https://github.com/maxsouldrake/Filmography)
 
 ### Скриншоты
-#### Библиотека фильмов
+#### 
 
-|              Список              |          Редактирование          |
-|:--------------------------------:|:--------------------------------:|
-| ![](res\webapp-screenshot01.png) | ![](res\webapp-screenshot02.png) |
-
-
-#### Книжная библиотека
-
-|              Список              |          Редактирование          |
-|:--------------------------------:|:--------------------------------:|
-| ![](res\webapp-screenshot03.png) | ![](res\webapp-screenshot04.png) |
+|             Библиотека фильмов            |          Книжная библиотека          |
+|--------------------------------|--------------------------------|
+| ![](https://github.com/vlad-shestakov/home-library-spr/blob/master/res/webapp-screenshot01.png) | ![](https://github.com/vlad-shestakov/home-library-spr/blob/master/res/webapp-screenshot03.png) |
+| ![](https://github.com/vlad-shestakov/home-library-spr/blob/master/res/webapp-screenshot02.png) | ![](https://github.com/vlad-shestakov/home-library-spr/blob/master/res/webapp-screenshot04.png) |
