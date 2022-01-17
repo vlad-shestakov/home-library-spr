@@ -66,6 +66,13 @@ public class FilmController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/i/add", method = RequestMethod.GET)
+    public ModelAndView addLibItemPage(@ModelAttribute("message") String message) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("editLibItemPage");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView addFilm(@ModelAttribute("film") Film film) {
         ModelAndView modelAndView = new ModelAndView();
@@ -80,6 +87,7 @@ public class FilmController {
         return modelAndView;
     }
 
+
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public ModelAndView editPage(@PathVariable("id") int id,
                                  @ModelAttribute("message") String message) {
@@ -89,6 +97,16 @@ public class FilmController {
         modelAndView.addObject("film", film);
         return modelAndView;
     }
+
+//    @RequestMapping(value = "/i/edit/{id}", method = RequestMethod.GET)
+//    public ModelAndView editLibItemPage(@PathVariable("id") int id,
+//                                 @ModelAttribute("message") String message) {
+//        LibItem libItem = libItemService.getById(id);
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("editLibItemPage");
+//        modelAndView.addObject("film", libItem);
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public ModelAndView editFilm(@ModelAttribute("film") Film film) {

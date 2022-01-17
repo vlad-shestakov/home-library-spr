@@ -21,8 +21,8 @@ public class LibItemDAOImpl implements LibItemDAO{
     @SuppressWarnings("unchecked")
     public List<LibItem> allLibItems(int page) {
         Session session = sessionFactory.getCurrentSession();
-//        return session.createQuery("from LibItem").setFirstResult(10 * (page - 1)).setMaxResults(10).list();
-        return session.createQuery("from LibItem").list();
+        return session.createQuery("from LibItem").setFirstResult(10 * (page - 1)).setMaxResults(10).list();
+//        return session.createQuery("from LibItem").list();
     }
 
     @Override

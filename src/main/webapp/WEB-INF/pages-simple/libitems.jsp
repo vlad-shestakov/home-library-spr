@@ -32,7 +32,6 @@
             <td><a href="<c:url value="/i/edit/${film.libraryItemNo}"/>">edit</a></td>
             <td><a href="<c:url value="/i/delete/${film.libraryItemNo}"/>">delete</a></td>
                 <%--
-
             return Objects.equals(libraryItemNo, libitem.libraryItemNo)
                     && Objects.equals(libraryNo, libitem.libraryNo)
                     && Objects.equals(itemName, libitem.itemName)
@@ -43,7 +42,6 @@
                     && Objects.equals(publisherName, libitem.publisherName)
                     && Objects.equals(pages, libitem.pages)
                     && Objects.equals(addingDate, libitem.addingDate);
-
                 --%>
         </tr>
     </c:forEach>
