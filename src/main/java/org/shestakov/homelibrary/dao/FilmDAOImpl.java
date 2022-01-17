@@ -1,11 +1,11 @@
-package testgroup.filmography.dao;
+package org.shestakov.homelibrary.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.shestakov.homelibrary.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import testgroup.filmography.model.Film;
 
 import java.util.List;
 

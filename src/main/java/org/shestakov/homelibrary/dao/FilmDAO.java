@@ -1,10 +1,10 @@
-package testgroup.filmography.service;
+package org.shestakov.homelibrary.dao;
 
-import testgroup.filmography.model.Film;
+import org.shestakov.homelibrary.model.Film;
 
 import java.util.List;
 
-public interface FilmService {
+public interface FilmDAO {
     List<Film> allFilms(int page);
     void add(Film film);
     void delete(Film film);
