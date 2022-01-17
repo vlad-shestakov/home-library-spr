@@ -25,5 +25,11 @@ public class LibItemDAOImpl implements LibItemDAO{
         return session.createQuery("from LibItem").list();
     }
 
+    @Override
+    public int libItemsCount() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("select count(*) from LibItem ", Number.class).getSingleResult().intValue();
+    }
+
 
 }

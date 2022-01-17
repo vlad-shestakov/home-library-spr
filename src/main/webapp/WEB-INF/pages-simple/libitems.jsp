@@ -9,11 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>FILMS</title>
+    <title>LIBRARY ITEMS</title>
 </head>
 <body>
 <table>
-    <caption>Films</caption>
+    <caption>Library items</caption>
     <tr>
         <th>№</th>
         <th>title</th>
@@ -29,8 +29,8 @@
             <td>${film.itemYear}</td>
             <td>${film.genre}</td>
 <%--            <td>${film.watched}</td>--%>
-            <td><a href="<c:url value="/edit/${film.libraryItemNo}"/>">edit</a></td>
-            <td><a href="<c:url value="/delete/${film.libraryItemNo}"/>">delete</a></td>
+            <td><a href="<c:url value="/i/edit/${film.libraryItemNo}"/>">edit</a></td>
+            <td><a href="<c:url value="/i/delete/${film.libraryItemNo}"/>">delete</a></td>
                 <%--
 
             return Objects.equals(libraryItemNo, libitem.libraryItemNo)
@@ -51,7 +51,7 @@
         <td colspan="7">
             <a href="<c:url value="/add"/>">Add new film</a>
             <c:forEach begin="${1}" end="${pagesCount}" step="1" varStatus="i">
-                <c:url value="/" var="url">
+                <c:url value="i" var="url">
                     <c:param name="page" value="${i.index}"/>
                 </c:url>
                 <a href="${url}">${i.index}</a>

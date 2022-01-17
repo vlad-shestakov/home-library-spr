@@ -46,10 +46,9 @@ public class FilmController {
     @RequestMapping(value = "/i", method = RequestMethod.GET)
     public ModelAndView allLibItems(@RequestParam(defaultValue = "1") int page) {
         List<LibItem> libItems = libItemService.allLibItems(page);
-//        int libItemsCount = filmService.filmsCount();
-        int libItemsCount = 50;
-//        int pagesCount = (filmsCount + 9)/10;
-        int pagesCount = 2;
+        int libItemsCount = libItemService.libItemsCount();
+//        int pagesCount = 2;
+        int pagesCount = (libItemsCount + 9)/10;
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("libitems");
         modelAndView.addObject("page", page);

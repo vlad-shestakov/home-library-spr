@@ -12,7 +12,7 @@ public interface LibItemDAO {
 //    void edit(LibItem libItem);
 //    LibItem getById(BigInteger libraryNo);
 
-//    int libItemsCount();
+    int libItemsCount();
 
 //    boolean checkTitle(String title);
 }

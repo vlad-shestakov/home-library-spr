@@ -24,4 +24,10 @@ public class LibItemServiceImpl implements LibItemService {
         return libItemDAO.allLibItems(page);
     }
 
+    @Override
+    @Transactional
+    public int libItemsCount() {
+        return libItemDAO.libItemsCount();
+    }
+
 }
