@@ -1,8 +1,8 @@
 body {
     background: url("tlotr.png") no-repeat 50% 50% fixed;
-    /*background: url("librarybg.jpg") no-repeat 50% 50% fixed;*/
 }
 
+/* Стиль фона для библиотеки */
 body.library {
     background: url("librarybg.jpg") no-repeat 50% 50% fixed;
 }
@@ -155,7 +155,7 @@ a:active {
     background: linear-gradient(1deg, rgb(205, 230, 255), rgba(255, 255, 255, 0.9));
     outline: none;
     height: 30px;
-    width: 300px;
+    width: 620px;
     font:  bold 20px Georgia, serif;
     text-align: center;
     text-shadow: 1px 1px 1px #7F7F7F;
