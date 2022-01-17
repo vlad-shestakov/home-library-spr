@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.shestakov.homelibrary.model.Film;
 import org.shestakov.homelibrary.service.FilmService;
+import org.shestakov.homelibrary.model.LibItem;
+import org.shestakov.homelibrary.service.LibItemService;
 
 import java.util.List;
 
@@ -14,10 +16,16 @@ public class FilmController {
     private int page;
 
     private FilmService filmService;
+    private LibItemService libItemService;
 
     @Autowired
     public void setFilmService(FilmService filmService) {
         this.filmService = filmService;
+    }
+
+    @Autowired
+    public void setLibItemService(LibItemService libItemService) {
+        this.libItemService = libItemService;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -30,6 +38,23 @@ public class FilmController {
         modelAndView.addObject("page", page);
         modelAndView.addObject("filmsList", films);
         modelAndView.addObject("filmsCount", filmsCount);
+        modelAndView.addObject("pagesCount", pagesCount);
+        this.page = page;
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/i", method = RequestMethod.GET)
+    public ModelAndView allLibItems(@RequestParam(defaultValue = "1") int page) {
+        List<LibItem> libItems = libItemService.allLibItems(page);
+//        int libItemsCount = filmService.filmsCount();
+        int libItemsCount = 50;
+//        int pagesCount = (filmsCount + 9)/10;
+        int pagesCount = 2;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("libitems");
+        modelAndView.addObject("page", page);
+        modelAndView.addObject("filmsList", libItems);
+        modelAndView.addObject("filmsCount", libItemsCount);
         modelAndView.addObject("pagesCount", pagesCount);
         this.page = page;
         return modelAndView;
