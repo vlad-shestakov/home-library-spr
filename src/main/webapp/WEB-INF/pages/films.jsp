@@ -2,21 +2,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>FILMS LIBRARY</title>
+    <title>Библиотека фильмов</title>
     <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <link rel="icon" type="image/png" href="<c:url value="/res/favicon.png"/>"/>
 </head>
 <body>
 <table class="style">
-    <caption class="heading">Films library</caption>
+    <caption class="heading">Библиотека фильмов</caption>
     <c:if test="${filmsCount > 0}">
         <tr>
             <th class="left-side">№</th>
-            <th style="width: 100%">title</th>
-            <th>year</th>
-            <th>genre</th>
-            <th>watched</th>
-            <th colspan="2" class="right-side">action</th>
+            <th style="width: 100%">Название</th>
+            <th>Год</th>
+            <th>Жанр</th>
+            <th>Смотрел</th>
+            <th colspan="2" class="right-side">Действие</th>
         </tr>
         <c:forEach var="film" items="${filmsList}" varStatus="i">
             <tr>
@@ -45,14 +45,14 @@
     <c:if test="${filmsCount == 0}">
         <tr>
             <td colspan="7" style="font-size: 150%" class="left-side right-side">
-                the list is empty but you can add a new film
+                Список пустой, но вы можете добавить фильм
             </td>
         </tr>
     </c:if>
     <tr>
         <td colspan="7" class="left-side link right-side">
             <a style="margin-right: 70px; font-size: 100%" href="<c:url value="/add"/>">
-                <span class="icon icon-add"></span>Add new film
+                <span class="icon icon-add"></span>Добавить фильм
             </a>
             <c:if test="${pagesCount > 1}">
                 <c:set value="disabled" var="disabled"/>
@@ -113,12 +113,12 @@
                     &nbsp<span class="icon icon-last"></span>&nbsp
                 </a>
             </c:if>
-            <span style="margin-left: 70px; font-size: 120%">Total number Of films: ${filmsCount}</span>
+            <span style="margin-left: 70px; font-size: 120%">Всего фильмов: ${filmsCount}</span>
         </td>
     </tr>
     <td colspan="7" class="left-side link right-side">
         <a style="margin-right: 70px; font-size: 100%" href="<c:url value="/libitems"/>">
-            <span class="icon icon-watched"></span>Books library
+            <span class="icon icon-watched"></span>Книжная библиотека
         </a>
     </td>
 </table>
