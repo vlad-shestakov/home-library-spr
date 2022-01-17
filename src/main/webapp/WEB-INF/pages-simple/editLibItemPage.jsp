@@ -19,8 +19,8 @@
     </c:choose>
 </head>
 <body>
-<c:url value="/add" var="addUrl"/>
-<c:url value="/edit" var="editUrl"/>
+<c:url value="/addlibitem" var="addUrl"/>
+<c:url value="/editlibitem" var="editUrl"/>
 <form action="${empty film.itemName ? addUrl : editUrl}" name="film" method="POST">
     <%--
 return Objects.equals(libraryItemNo, libitem.libraryItemNo)
@@ -36,17 +36,24 @@ return Objects.equals(libraryItemNo, libitem.libraryItemNo)
     --%>
     <c:choose>
         <c:when test="${!empty film.itemName}">
-            <p>Edit film</p>
+            <p>Edit library item</p>
             <input type="hidden" name="id" value="${film.libraryItemNo}">
         </c:when>
         <c:otherwise>
-            <p>Add new film</p>
+            <p>Add new library item</p>
         </c:otherwise>
     </c:choose>
-    <p><input type="text" name="title" placeholder="title" value="${film.itemName}" maxlength="100" required>
-    <p><input type="number" name="year" placeholder="year" value="${film.itemYear}" required>
-    <p><input type="text" name="genre" placeholder="genre" value="${film.genre}" maxlength="20" required>
-<%--    <p>--%>
+        <p><input type="number" name="libraryItemNo" placeholder="libraryItemNo" value="${film.libraryItemNo}"></p>
+        <p><input type="number" name="libraryNo" placeholder="libraryNo [*]" value="${film.libraryNo}" required></p>
+        <p><input type="text" name="itemName" placeholder="itemName [*]" value="${film.itemName}" maxlength="2000" required></p>
+        <p><input type="text" name="itemAuthor" placeholder="itemAuthor" value="${film.itemAuthor}" maxlength="255"></p>
+        <p><input type="text" name="genre" placeholder="genre" value="${film.genre}" maxlength="255"></p>
+        <p><input type="text" name="itemDesc" placeholder="itemDesc" value="${film.itemDesc}" maxlength="4000"></p>
+        <p><input type="number" name="year" placeholder="year" value="${film.itemYear}"></p>
+        <p><input type="text" name="publisherName" placeholder="publisherName" value="${film.publisherName}" maxlength="500"></p>
+        <p><input type="number" name="pages" placeholder="pages" value="${film.pages}"></p>
+        <p><input type="text" name="addingDate" placeholder="addingDate" value="${film.addingDate}"></p>
+        <%--    <p>--%>
 <%--        <c:if test="${film.watched == true}">--%>
 <%--            <input type="checkbox" name="watched" id="watched" checked>--%>
 <%--        </c:if>--%>
@@ -56,8 +63,8 @@ return Objects.equals(libraryItemNo, libitem.libraryItemNo)
 <%--        <label for="watched">watched</label>--%>
 <%--    </p>--%>
     <p>
-        <c:set value="add" var="add"/>
-        <c:set value="edit" var="edit"/>
+        <c:set value="add item" var="add"/>
+        <c:set value="edit item" var="edit"/>
         <input type="submit" value="${empty film.itemName ? add : edit}">
     </p>
     <p>${message}</p>

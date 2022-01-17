@@ -1,5 +1,7 @@
 package org.shestakov.homelibrary.model;
 
+import org.hibernate.annotations.DynamicInsert;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Date;
@@ -7,7 +9,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Entity
-//@DynamicInsert // Теперь это динамическая сущность, которая опускает поля с типом null, для default в createDate
+@DynamicInsert // Теперь это динамическая сущность, которая опускает поля с типом null, для default в createDate
 @Table(name = "LIBITEM", schema = "HOMELIB")
 public class LibItem {
 

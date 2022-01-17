@@ -39,7 +39,7 @@
     </tr>
     <tr>
         <td colspan="7">
-            <a href="<c:url value="/i"/>">Library items</a>
+            <a href="<c:url value="/libitems"/>">Library items</a>
         </td>
     </tr>
 </table>

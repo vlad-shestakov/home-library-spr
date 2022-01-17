@@ -16,21 +16,36 @@
     <caption>Library items</caption>
     <tr>
         <th>№</th>
+<%--        <th>libraryItemNo</th>--%>
+<%--        <th>libraryNo</th>--%>
+        <th>libraryNo</th>
         <th>title</th>
-        <th>year</th>
+        <th>author</th>
         <th>genre</th>
+        <th>description</th>
+        <th>year</th>
+        <th>publisher</th>
+        <th>pages</th>
+        <th>adding date</th>
 <%--        <th>watched</th>--%>
         <th colspan="2">action</th>
     </tr>
     <c:forEach var="film" items="${filmsList}" varStatus="i">
         <tr>
             <td>${i.index + 1 + (page - 1) * 10}</td>
+<%--            <td>${film.libraryItemNo}</td>--%>
+            <td>${film.libraryNo}</td>
             <td>${film.itemName}</td>
-            <td>${film.itemYear}</td>
+            <td>${film.itemAuthor}</td>
             <td>${film.genre}</td>
+            <td>${film.itemDesc}</td>
+            <td>${film.itemYear}</td>
+            <td>${film.publisherName}</td>
+            <td>${film.pages}</td>
+            <td>${film.addingDate}</td>
 <%--            <td>${film.watched}</td>--%>
-            <td><a href="<c:url value="/i/edit/${film.libraryItemNo}"/>">edit</a></td>
-            <td><a href="<c:url value="/i/delete/${film.libraryItemNo}"/>">delete</a></td>
+            <td><a href="<c:url value="/editlibitem/${film.libraryItemNo}"/>">edit</a></td>
+            <td><a href="<c:url value="/deletelibitem/${film.libraryItemNo}"/>">delete</a></td>
                 <%--
             return Objects.equals(libraryItemNo, libitem.libraryItemNo)
                     && Objects.equals(libraryNo, libitem.libraryNo)
@@ -47,13 +62,18 @@
     </c:forEach>
     <tr>
         <td colspan="7">
-            <a href="<c:url value="/add"/>">Add new film</a>
+            <a href="<c:url value="/addlibitem"/>">Add new library item</a>
             <c:forEach begin="${1}" end="${pagesCount}" step="1" varStatus="i">
-                <c:url value="i" var="url">
+                <c:url value="libitems" var="url">
                     <c:param name="page" value="${i.index}"/>
                 </c:url>
                 <a href="${url}">${i.index}</a>
             </c:forEach>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            <a href="<c:url value="/"/>">Films</a>
         </td>
     </tr>
 </table>
